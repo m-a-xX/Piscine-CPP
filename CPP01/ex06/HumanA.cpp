@@ -1,18 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   directory.h                                        :+:      :+:    :+:   */
+/*   HumanA.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mavileo <mavileo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/04/24 10:52:16 by mavileo           #+#    #+#             */
-/*   Updated: 2020/04/24 10:52:17 by mavileo          ###   ########.fr       */
+/*   Created: 2020/04/27 03:18:52 by mavileo           #+#    #+#             */
+/*   Updated: 2020/04/28 05:59:33 by mavileo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# ifndef DIRECTORY_H
-#define DIRECTORY_H
+#include "HumanA.hpp"
 
-#include "Contact.h"
+HumanA::HumanA(std::string name, Weapon &new_weapon): weapon(new_weapon)
+{
+	this->name = name;
+}
 
-#endif
+void	HumanA::attack()
+{
+	std::cout << name << " attacks with his " << weapon.getType() << std::endl;
+}

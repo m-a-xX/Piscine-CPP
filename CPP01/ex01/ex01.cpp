@@ -1,18 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   directory.h                                        :+:      :+:    :+:   */
+/*   ex01.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mavileo <mavileo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/04/24 10:52:16 by mavileo           #+#    #+#             */
-/*   Updated: 2020/04/24 10:52:17 by mavileo          ###   ########.fr       */
+/*   Created: 2020/04/26 17:22:13 by mavileo           #+#    #+#             */
+/*   Updated: 2020/04/26 17:25:12 by mavileo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# ifndef DIRECTORY_H
-#define DIRECTORY_H
+#include <iostream>
 
-#include "Contact.h"
+void memoryLeak()
+{
+	std::string* panthere = new std::string("String panthere");
 
-#endif
+	std::cout << *panthere << std::endl;
+	delete panthere;
+}

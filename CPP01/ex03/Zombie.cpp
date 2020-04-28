@@ -1,18 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   directory.h                                        :+:      :+:    :+:   */
+/*   Zombie.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mavileo <mavileo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/04/24 10:52:16 by mavileo           #+#    #+#             */
-/*   Updated: 2020/04/24 10:52:17 by mavileo          ###   ########.fr       */
+/*   Created: 2020/04/26 17:37:56 by mavileo           #+#    #+#             */
+/*   Updated: 2020/04/26 21:45:48 by mavileo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# ifndef DIRECTORY_H
-#define DIRECTORY_H
+#include "Zombie.hpp"
 
-#include "Contact.h"
+void	Zombie::give_name(std::string name)
+{
+	this->name = name;
+}
 
-#endif
+void	Zombie::announce()
+{
+	std::cout << "<" << name << " (" << type << ")> Braiiiiiiinnnssss ...\n";
+}

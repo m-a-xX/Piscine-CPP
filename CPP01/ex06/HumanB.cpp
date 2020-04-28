@@ -1,18 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   directory.h                                        :+:      :+:    :+:   */
+/*   HumanB.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mavileo <mavileo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/04/24 10:52:16 by mavileo           #+#    #+#             */
-/*   Updated: 2020/04/24 10:52:17 by mavileo          ###   ########.fr       */
+/*   Created: 2020/04/27 03:18:57 by mavileo           #+#    #+#             */
+/*   Updated: 2020/04/28 07:06:52 by mavileo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# ifndef DIRECTORY_H
-#define DIRECTORY_H
+#include "HumanB.hpp"
 
-#include "Contact.h"
+HumanB::HumanB(std::string name)
+{
+	this->name = name;
+}
 
-#endif
+void	HumanB::attack()
+{
+	std::cout << name << " attacks with his " << weapon->getType() << std::endl;
+}
+
+void	HumanB::setWeapon(Weapon &new_weapon)
+{
+	this->weapon = &new_weapon;
+}

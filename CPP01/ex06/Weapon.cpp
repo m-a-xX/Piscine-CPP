@@ -1,18 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   directory.h                                        :+:      :+:    :+:   */
+/*   Weapon.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mavileo <mavileo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/04/24 10:52:16 by mavileo           #+#    #+#             */
-/*   Updated: 2020/04/24 10:52:17 by mavileo          ###   ########.fr       */
+/*   Created: 2020/04/27 03:19:03 by mavileo           #+#    #+#             */
+/*   Updated: 2020/04/27 04:13:16 by mavileo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# ifndef DIRECTORY_H
-#define DIRECTORY_H
+#include "Weapon.hpp"
 
-#include "Contact.h"
+Weapon::Weapon()
+{
+}
 
-#endif
+Weapon::Weapon(std::string type)
+{
+	this->type = type;
+}
+
+std::string	Weapon::getType() const
+{
+	return type;
+}
+
+void		Weapon::setType(std::string new_type)
+{
+	type = new_type;
+}

@@ -1,18 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   directory.h                                        :+:      :+:    :+:   */
+/*   Human.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mavileo <mavileo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/04/24 10:52:16 by mavileo           #+#    #+#             */
-/*   Updated: 2020/04/24 10:52:17 by mavileo          ###   ########.fr       */
+/*   Created: 2020/04/27 02:30:56 by mavileo           #+#    #+#             */
+/*   Updated: 2020/04/27 03:14:44 by mavileo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# ifndef DIRECTORY_H
-#define DIRECTORY_H
+#include "Human.hpp"
 
-#include "Contact.h"
+Human::Human()
+{
+}
 
-#endif
+Human::~Human()
+{
+}
+
+std::string	Human::identify()
+{
+	return this->brain.identify();
+}
+
+Brain		&Human::getBrain()
+{
+	return this->brain;
+}

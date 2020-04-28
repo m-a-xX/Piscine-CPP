@@ -1,18 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   directory.h                                        :+:      :+:    :+:   */
+/*   ex04.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mavileo <mavileo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/04/24 10:52:16 by mavileo           #+#    #+#             */
-/*   Updated: 2020/04/24 10:52:17 by mavileo          ###   ########.fr       */
+/*   Created: 2020/04/27 02:27:09 by mavileo           #+#    #+#             */
+/*   Updated: 2020/04/27 02:29:42 by mavileo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# ifndef DIRECTORY_H
-#define DIRECTORY_H
+#include <iostream>
 
-#include "Contact.h"
-
-#endif
+int main(void)
+{
+	std::string str = "HI THIS IS BRAIN";
+	std::string *pointer = &str;
+	std::string &reference = str;
+	
+	std::cout << *pointer << std::endl;
+	std::cout << reference;
+}

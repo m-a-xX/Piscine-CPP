@@ -1,18 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   directory.h                                        :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mavileo <mavileo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/04/24 10:52:16 by mavileo           #+#    #+#             */
-/*   Updated: 2020/04/24 10:52:17 by mavileo          ###   ########.fr       */
+/*   Created: 2020/04/26 21:14:41 by mavileo           #+#    #+#             */
+/*   Updated: 2020/04/27 02:27:48 by mavileo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# ifndef DIRECTORY_H
-#define DIRECTORY_H
+#include "ZombieHorde.hpp"
 
-#include "Contact.h"
+int main(void)
+{
+	ZombieHorde *horde_heap;
+	ZombieHorde horde_stack(10);
 
-#endif
+	std::cout << std::endl;
+	horde_heap = new ZombieHorde(10);
+	delete horde_heap;
+	return 0;
+}

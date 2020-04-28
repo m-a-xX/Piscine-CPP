@@ -1,18 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   directory.h                                        :+:      :+:    :+:   */
+/*   Pony.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mavileo <mavileo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/04/24 10:52:16 by mavileo           #+#    #+#             */
-/*   Updated: 2020/04/24 10:52:17 by mavileo          ###   ########.fr       */
+/*   Created: 2020/04/24 10:52:28 by mavileo           #+#    #+#             */
+/*   Updated: 2020/04/28 19:41:49 by mavileo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# ifndef DIRECTORY_H
-#define DIRECTORY_H
+#include "Pony.hpp"
 
-#include "Contact.h"
+Pony::Pony(string name_arg, int pos)
+{
+	name = name_arg;
+	position = pos;
+}
 
-#endif
+void	Pony::forward()
+{
+	position += 5;
+}
+
+void	Pony::print_position()
+{
+	cout << name << " est a la position " << position << endl;
+}

@@ -1,18 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   directory.h                                        :+:      :+:    :+:   */
+/*   Human.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mavileo <mavileo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/04/24 10:52:16 by mavileo           #+#    #+#             */
-/*   Updated: 2020/04/24 10:52:17 by mavileo          ###   ########.fr       */
+/*   Created: 2020/04/27 02:30:58 by mavileo           #+#    #+#             */
+/*   Updated: 2020/04/27 03:14:27 by mavileo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# ifndef DIRECTORY_H
-#define DIRECTORY_H
+# ifndef HUMAN_HPP
+#define HUMAN_HPP
 
-#include "Contact.h"
+# include "Brain.hpp"
+
+class Human
+{
+private:
+	Brain brain;
+public:
+	Human(/* args */);
+	~Human();
+	std::string	identify();
+	Brain		&getBrain();
+};
 
 #endif
