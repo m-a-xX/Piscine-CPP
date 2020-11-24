@@ -22,10 +22,10 @@ Human::~Human()
 
 std::string	Human::identify()
 {
-	return this->brain.identify();
+	return brain.identify();
 }
 
 Brain		&Human::getBrain()
 {
-	return this->brain;
+	return brain;
 }

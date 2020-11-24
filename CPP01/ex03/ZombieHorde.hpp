@@ -20,12 +20,13 @@
 class ZombieHorde
 {
 private:
+	std::string name;
+	int number;
 	Zombie *zombies;
 public:
 	ZombieHorde(int n);
 	~ZombieHorde();
-	void free();
-	void free_p();
+	void announce();
 };
 
 #endif

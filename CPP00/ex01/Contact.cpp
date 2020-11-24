@@ -69,6 +69,8 @@ void	Contact::list_contacts(Contact *contacts, int index)
 	string	input;
 	int		print(0);
 	int		i(0);
+	bool	digit = true;
+
 	while (i < index)
 	{
 		cout << "         " << i + 1 << "|";
@@ -89,7 +91,15 @@ void	Contact::list_contacts(Contact *contacts, int index)
 		return ;
 	}
 	getline(cin, input);
-	if (stoi(input) - 1 >= 0 && stoi(input) - 1 < i)
+	for (int i=0; input[i]; i++)
+    {
+        if (!isdigit(input[i]))
+        {
+			digit = false;
+			break;
+		}
+    }
+	if (digit && stoi(input) - 1 >= 0 && stoi(input) - 1 < i)
 	{
 		i = stoi(input) - 1;
 		print_contact(contacts[i]);

@@ -34,14 +34,19 @@ ZombieHorde::ZombieHorde(int n)
 {
 	zombies = new Zombie[n];
 	
+    number = n;
 	for (int i = 0; i < n; i++)
-	{
 		zombies[i].give_name(random_string(12));
-		zombies[i].announce();
-	}
 }
 
 ZombieHorde::~ZombieHorde()
 {
 	delete[] zombies;
 }
+
+void ZombieHorde::announce()
+{
+	for (int i=0; i < number; i++)
+        zombies[i].announce();
+}
+

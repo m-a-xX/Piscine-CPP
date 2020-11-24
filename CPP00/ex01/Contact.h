@@ -16,6 +16,8 @@
 #include <iostream>
 #include <string>
 #include <iomanip>
+#include <cctype>
+#include <cstring>
 
 using namespace std;
 

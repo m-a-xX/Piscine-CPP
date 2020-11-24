@@ -17,27 +17,26 @@
 
 void	ponyOnTheStack(void)
 {
-	Pony jean("Jean", 0);
+	Pony stackPony("stackPony", 0);
 
-	jean.print_position();
-	jean.forward();
-	jean.print_position();
+	stackPony.print_position();
+	stackPony.forward();
+	stackPony.print_position();
 }
 
 void	ponyOnTheHeap(void)
 {
-	Pony *jeanne = new Pony("Jeanne", 0);
+	Pony *heapPony = new Pony("heapPony", 0);
 
-	jeanne->print_position();
-	jeanne->forward();
-	jeanne->print_position();
-	delete jeanne;
+	heapPony->print_position();
+	heapPony->forward();
+	heapPony->print_position();
+	delete heapPony;
 }
 
 int		main(void)
 {
 	ponyOnTheStack();
 	ponyOnTheHeap();
-	system("leaks a.out");
 	return (0);
 }

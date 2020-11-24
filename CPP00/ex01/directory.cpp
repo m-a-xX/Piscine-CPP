@@ -19,7 +19,8 @@ int main()
 	Contact	contacts[8];
 	string	input;
 	int		i(0);
-	
+
+	cout << "Welcome in the directory. Commands availables are ADD, SEARCH and EXIT\n";
 	while (1)
 	{
 		getline(cin, input);
@@ -38,5 +39,7 @@ int main()
 		}
 		else if (!input.compare("SEARCH"))
 			contacts[0].list_contacts(contacts, i);
+		else
+			cout << "Command not found. Commands availables are ADD, SEARCH and EXIT\n";
 	}
 }

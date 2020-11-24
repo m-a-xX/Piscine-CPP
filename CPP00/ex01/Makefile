@@ -27,10 +27,9 @@ $(NAME):                $(OBJS)
 						clang++ ${CFLAGS} -o ${NAME} ${OBJS}
 
 clean:
-						$(RM) $(OBJS) $(BONUS_OBJS)
+						$(RM) $(NAME)
 
 fclean:                 clean
-						$(RM) $(NAME)
 
 re:                             fclean $(NAME)
 

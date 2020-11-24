@@ -17,8 +17,8 @@ int main(void)
 	ZombieEvent zevent;
 	Zombie	*zombie;
 
-	std::cout << "Create EventZombie obj on stack of type \"Rampant\"\n";
-	zevent.setZombieType("Rampant");
+	std::cout << "Create EventZombie obj on stack of type \"Type1\"\n";
+	zevent.setZombieType("Type1");
 	std::cout << "The type of the EventZombie obj is : " << zevent.getType() << std::endl;
 	std::cout << "Create zombie on heap called \"Heap Zombie\"\n";
 	zombie = zevent.newZombie("Heap Zombie");

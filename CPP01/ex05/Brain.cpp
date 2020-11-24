@@ -19,7 +19,7 @@ Brain::Brain()
 
 std::string	Brain::identify()
 {
-	std::stringstream ss;
-	ss << (void *)this;
-	return ss.str();
+	std::stringstream address;
+	address << (void *)this;
+	return address.str();
 }

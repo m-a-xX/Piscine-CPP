@@ -17,8 +17,10 @@ int main(void)
 	ZombieHorde *horde_heap;
 	ZombieHorde horde_stack(10);
 
-	std::cout << std::endl;
 	horde_heap = new ZombieHorde(10);
+	horde_heap->announce();
+	std::cout << std::endl;
+	horde_stack.announce();
 	delete horde_heap;
 	return 0;
 }
