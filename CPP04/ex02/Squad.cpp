@@ -6,7 +6,7 @@
 /*   By: mavileo <mavileo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/29 00:55:59 by mavileo           #+#    #+#             */
-/*   Updated: 2020/12/02 14:48:01 by mavileo          ###   ########.fr       */
+/*   Updated: 2020/12/02 15:18:30 by mavileo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ Squad::Squad( const Squad & src )
 Squad::~Squad()
 {
 	for (int i = 0; i < count; i++)
-		delete (TacticalMarine*)&units[i];
+		delete units[i];
 	delete units;
 }
 
@@ -72,10 +72,10 @@ int Squad::getCount() const
 
 ISpaceMarine* Squad::getUnit(int n) const
 {
-	ISpaceMarine* tmp = units;
+	ISpaceMarine** tmp = units;
 	for (int i = 0; i < n; i++)
 		tmp++;
-	return tmp;
+	return *tmp;
 }
 
 int Squad::push(ISpaceMarine *newUnit)
@@ -85,23 +85,19 @@ int Squad::push(ISpaceMarine *newUnit)
 		return (1);
 	if (units == NULL)
 	{
+		units = new ISpaceMarine*;
 		count = 1;
-		units = newUnit;
+		*units = newUnit;
 		return 0;
 	}
 	for (int i = 0; i < count; i++)
 	{
-		p = &units[i];
+		p = units[i];
 		if (p == (void *)newUnit)
 			return 1;
 	}
-	ISpaceMarine *f = (ISpaceMarine *)(new TacticalMarine[count + 1]);
-	for (int j = 0; j < count; j++)
-		f[j] = units[j];
-	f[count] = *newUnit;
+	units[count] = newUnit;
 	count++;
-	delete units;
-	units = f;
 	return 0;
 }
 

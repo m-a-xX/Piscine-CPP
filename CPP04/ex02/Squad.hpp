@@ -6,7 +6,7 @@
 /*   By: mavileo <mavileo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/29 00:56:02 by mavileo           #+#    #+#             */
-/*   Updated: 2020/12/02 14:14:58 by mavileo          ###   ########.fr       */
+/*   Updated: 2020/12/02 14:57:50 by mavileo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ class Squad : public ISquad
 	private:
 
 		int count;
-		ISpaceMarine* units;
+		ISpaceMarine** units;
 };
 
 std::ostream &			operator<<( std::ostream & o, Squad const & i );
