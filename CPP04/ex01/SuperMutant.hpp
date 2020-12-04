@@ -1,39 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cure.hpp                                           :+:      :+:    :+:   */
+/*   SuperMutant.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mavileo <mavileo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/12/02 23:06:20 by mavileo           #+#    #+#             */
-/*   Updated: 2020/12/04 10:27:27 by mavileo          ###   ########.fr       */
+/*   Created: 2020/11/28 22:45:45 by mavileo           #+#    #+#             */
+/*   Updated: 2020/11/28 22:45:46 by mavileo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CURE_HPP
-# define CURE_HPP
+#ifndef SUPERMUTANT_HPP
+# define SUPERMUTANT_HPP
 
-# include "AMateria.hpp"
-# include "ICharacter.hpp"
+# include "Enemy.hpp"
 # include <iostream>
 # include <string>
 
-class Cure : public AMateria
+class SuperMutant : public Enemy
 {
 
 	public:
 
-		Cure();
-		Cure( Cure const & src );
-		virtual ~Cure();
+		SuperMutant();
+		SuperMutant( SuperMutant const & src );
+		virtual ~SuperMutant();
 
-		Cure &		operator=( Cure const & rhs );
+		SuperMutant &		operator=( SuperMutant const & rhs );
 
-        AMateria* clone() const;
-        void use(ICharacter& target);
+		void takeDamage(int);
+
+	private:
+
 
 };
 
-std::ostream &			operator<<( std::ostream & o, Cure const & i );
+std::ostream &			operator<<( std::ostream & o, SuperMutant const & i );
 
-#endif /* ************************************************************ CURE_H */
+#endif /* *********************************************************** SuperMutant_H */

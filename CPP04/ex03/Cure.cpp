@@ -6,7 +6,7 @@
 /*   By: mavileo <mavileo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/02 23:06:18 by mavileo           #+#    #+#             */
-/*   Updated: 2020/12/03 09:36:41 by mavileo          ###   ########.fr       */
+/*   Updated: 2020/12/04 10:39:48 by mavileo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,9 @@ Cure::Cure() : AMateria("cure")
 {
 }
 
-Cure::Cure( const Cure & )
+Cure::Cure( const Cure &s )
 {
+	setXP(s.getXP());
 }
 
 
@@ -38,12 +39,9 @@ Cure::~Cure()
 ** --------------------------------- OVERLOAD ---------------------------------
 */
 
-Cure &				Cure::operator=( Cure const & )
+Cure &				Cure::operator=( Cure const &s )
 {
-	//if ( this != &rhs )
-	//{
-		//this->_value = rhs.getValue();
-	//}
+	this->setXP(s.getXP());
 	return *this;
 }
 

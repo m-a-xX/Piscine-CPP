@@ -6,7 +6,7 @@
 /*   By: mavileo <mavileo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/02 23:06:29 by mavileo           #+#    #+#             */
-/*   Updated: 2020/12/03 10:07:55 by mavileo          ###   ########.fr       */
+/*   Updated: 2020/12/04 11:30:39 by mavileo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,13 @@ MateriaSource::MateriaSource()
 
 MateriaSource::MateriaSource( const MateriaSource & src )
 {
-	mats = src.mats;
+	for(int i = 0; i < 4; i++)
+	{
+		if (src.mats[i] == NULL)
+			mats[i] = NULL;
+		else
+			mats[i] = src.mats[i]->clone();
+	}
 }
 
 

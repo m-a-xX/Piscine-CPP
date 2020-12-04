@@ -1,28 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Ice.cpp                                            :+:      :+:    :+:   */
+/*   RadScorpion.cpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mavileo <mavileo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/12/02 23:06:12 by mavileo           #+#    #+#             */
-/*   Updated: 2020/12/04 10:39:24 by mavileo          ###   ########.fr       */
+/*   Created: 2020/11/28 22:45:37 by mavileo           #+#    #+#             */
+/*   Updated: 2020/11/28 23:33:28 by mavileo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Ice.hpp"
+#include "RadScorpion.hpp"
 
 /*
 ** ------------------------------- CONSTRUCTOR --------------------------------
 */
 
-Ice::Ice() : AMateria("ice")
+RadScorpion::RadScorpion() : Enemy(80, "RadScorpion")
 {
+	std::cout << "* click click click *\n";
 }
 
-Ice::Ice( const Ice &s )
+RadScorpion::RadScorpion( const RadScorpion & src )
 {
-	setXP(s.getXP());
+	*this = src;
 }
 
 
@@ -30,8 +31,9 @@ Ice::Ice( const Ice &s )
 ** -------------------------------- DESTRUCTOR --------------------------------
 */
 
-Ice::~Ice()
+RadScorpion::~RadScorpion()
 {
+	std::cout << "* SPROTCH *\n";
 }
 
 
@@ -39,14 +41,16 @@ Ice::~Ice()
 ** --------------------------------- OVERLOAD ---------------------------------
 */
 
-Ice &				Ice::operator=( Ice const &s )
+RadScorpion &				RadScorpion::operator=( RadScorpion const & rhs )
 {
-	this->setXP(s.getXP());
+	setHP(rhs.getHP());
+	setType(rhs.getType());
 	return *this;
 }
 
-std::ostream &			operator<<( std::ostream & o, Ice const & )
+std::ostream &			operator<<( std::ostream & o, RadScorpion const & i )
 {
+	(void)i;
 	//o << "Value = " << i.getValue();
 	return o;
 }
@@ -55,18 +59,5 @@ std::ostream &			operator<<( std::ostream & o, Ice const & )
 /*
 ** --------------------------------- METHODS ----------------------------------
 */
-
-AMateria* Ice::clone() const
-{
-	AMateria *ret = new Ice(*this);
-	return ret;
-}
-
-void Ice::use(ICharacter& target)
-{
-	this->AMateria::use(target);
-	std::cout << "* shoots an ice bolt at " << target.getName() << " *\n";
-}
-
 
 /* ************************************************************************** */

@@ -6,7 +6,7 @@
 /*   By: mavileo <mavileo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/02 23:06:16 by mavileo           #+#    #+#             */
-/*   Updated: 2020/12/03 09:25:10 by mavileo          ###   ########.fr       */
+/*   Updated: 2020/12/04 10:27:30 by mavileo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ class Ice : public AMateria
 
 		Ice();
 		Ice( Ice const & src );
-		~Ice();
+		virtual ~Ice();
 
 		Ice &		operator=( Ice const & rhs );
 

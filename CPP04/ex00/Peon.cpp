@@ -1,28 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Ice.cpp                                            :+:      :+:    :+:   */
+/*   Peon.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mavileo <mavileo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/12/02 23:06:12 by mavileo           #+#    #+#             */
-/*   Updated: 2020/12/04 10:39:24 by mavileo          ###   ########.fr       */
+/*   Created: 2020/11/28 16:14:52 by mavileo           #+#    #+#             */
+/*   Updated: 2020/11/28 17:14:52 by mavileo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Ice.hpp"
+#include "Peon.hpp"
 
 /*
 ** ------------------------------- CONSTRUCTOR --------------------------------
 */
 
-Ice::Ice() : AMateria("ice")
+Peon::Peon(std::string a_name) : Victim(a_name)
 {
+	std::cout << "Zog zog.\n";
 }
 
-Ice::Ice( const Ice &s )
+Peon::Peon( const Peon & src )
 {
-	setXP(s.getXP());
+    *this = src;
 }
 
 
@@ -30,8 +31,9 @@ Ice::Ice( const Ice &s )
 ** -------------------------------- DESTRUCTOR --------------------------------
 */
 
-Ice::~Ice()
+Peon::~Peon()
 {
+	std::cout << "Bleuark...\n";
 }
 
 
@@ -39,15 +41,17 @@ Ice::~Ice()
 ** --------------------------------- OVERLOAD ---------------------------------
 */
 
-Ice &				Ice::operator=( Ice const &s )
+Peon &				Peon::operator=( Peon const & rhs )
 {
-	this->setXP(s.getXP());
+    Peon &p = (Peon &)rhs;
+	setName(p.getName());
 	return *this;
 }
 
-std::ostream &			operator<<( std::ostream & o, Ice const & )
+std::ostream &			operator<<( std::ostream & o, Peon const & i )
 {
-	//o << "Value = " << i.getValue();
+	Peon &p = (Peon &)i;
+	o << "I'm " << p.getName() << " and I like otters!\n";	
 	return o;
 }
 
@@ -56,16 +60,10 @@ std::ostream &			operator<<( std::ostream & o, Ice const & )
 ** --------------------------------- METHODS ----------------------------------
 */
 
-AMateria* Ice::clone() const
+void	Peon::getPolymorphed() const
 {
-	AMateria *ret = new Ice(*this);
-	return ret;
-}
-
-void Ice::use(ICharacter& target)
-{
-	this->AMateria::use(target);
-	std::cout << "* shoots an ice bolt at " << target.getName() << " *\n";
+    Peon &p = (Peon &)*this;
+	std::cout << p.getName() << " was just polymorphed into a pink pony!\n";	
 }
 
 

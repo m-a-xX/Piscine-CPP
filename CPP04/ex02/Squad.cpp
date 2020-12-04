@@ -6,7 +6,7 @@
 /*   By: mavileo <mavileo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/29 00:55:59 by mavileo           #+#    #+#             */
-/*   Updated: 2020/12/02 15:18:30 by mavileo          ###   ########.fr       */
+/*   Updated: 2020/12/04 10:23:22 by mavileo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,10 @@ Squad::Squad( const Squad & src )
 {
 	if (units)
 		delete units;
+	units = NULL;
 	count = src.count;
-	units = src.units;
+	for (int i = 0; i < count; i++)
+		this->push(units[i]->clone());
 }
 
 
@@ -73,6 +75,8 @@ int Squad::getCount() const
 ISpaceMarine* Squad::getUnit(int n) const
 {
 	ISpaceMarine** tmp = units;
+	if (n < 0 || n > count)
+		return NULL;
 	for (int i = 0; i < n; i++)
 		tmp++;
 	return *tmp;

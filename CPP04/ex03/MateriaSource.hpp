@@ -6,7 +6,7 @@
 /*   By: mavileo <mavileo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/02 23:06:33 by mavileo           #+#    #+#             */
-/*   Updated: 2020/12/03 08:49:06 by mavileo          ###   ########.fr       */
+/*   Updated: 2020/12/04 10:27:38 by mavileo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ class MateriaSource : public IMateriaSource
 
 		MateriaSource();
 		MateriaSource( MateriaSource const & src );
-		~MateriaSource();
+		virtual ~MateriaSource();
 
 		MateriaSource &		operator=( MateriaSource const & rhs );
 

@@ -1,39 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cure.hpp                                           :+:      :+:    :+:   */
+/*   PowerFist.hpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mavileo <mavileo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/12/02 23:06:20 by mavileo           #+#    #+#             */
-/*   Updated: 2020/12/04 10:27:27 by mavileo          ###   ########.fr       */
+/*   Created: 2020/11/28 18:32:58 by mavileo           #+#    #+#             */
+/*   Updated: 2020/11/28 18:41:22 by mavileo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CURE_HPP
-# define CURE_HPP
+#ifndef POWERFIST_HPP
+# define POWERFIST_HPP
 
-# include "AMateria.hpp"
-# include "ICharacter.hpp"
+# include "AWeapon.hpp"
 # include <iostream>
 # include <string>
 
-class Cure : public AMateria
+class PowerFist : public AWeapon
 {
 
 	public:
 
-		Cure();
-		Cure( Cure const & src );
-		virtual ~Cure();
+		PowerFist();
+		PowerFist( PowerFist const & src );
+		virtual ~PowerFist();
 
-		Cure &		operator=( Cure const & rhs );
+		PowerFist &		operator=( PowerFist const & rhs );
 
-        AMateria* clone() const;
-        void use(ICharacter& target);
+		void attack() const;
+
+	private:
 
 };
 
-std::ostream &			operator<<( std::ostream & o, Cure const & i );
+std::ostream &			operator<<( std::ostream & o, PowerFist const & i );
 
-#endif /* ************************************************************ CURE_H */
+#endif /* ********************************************************* PowerFist_H */

@@ -1,36 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   AMateria.cpp                                       :+:      :+:    :+:   */
+/*   Sorcerer.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mavileo <mavileo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/12/02 23:06:09 by mavileo           #+#    #+#             */
-/*   Updated: 2020/12/04 10:41:26 by mavileo          ###   ########.fr       */
+/*   Created: 2020/11/28 16:14:52 by mavileo           #+#    #+#             */
+/*   Updated: 2020/12/04 10:13:20 by mavileo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "AMateria.hpp"
+#include "Sorcerer.hpp"
 
 /*
 ** ------------------------------- CONSTRUCTOR --------------------------------
 */
 
-AMateria::AMateria()
+Sorcerer::Sorcerer(std::string a_name, std::string a_title)
 {
-	_xp = 0;
-	type = "(null)";
+	name = a_name;
+	title = a_title;
+	std::cout << name << ", " << title << ", is born!\n";
 }
 
-AMateria::AMateria(std::string const & a_type)
+Sorcerer::Sorcerer( const Sorcerer & src )
 {
-	_xp = 0;
-	type = a_type;
-}
-
-AMateria::AMateria( const AMateria & src )
-{
-	_xp = src._xp;
+    *this = src;
 }
 
 
@@ -38,8 +33,9 @@ AMateria::AMateria( const AMateria & src )
 ** -------------------------------- DESTRUCTOR --------------------------------
 */
 
-AMateria::~AMateria()
+Sorcerer::~Sorcerer()
 {
+	std::cout << name << ", " << title << ", is dead. Consequences will never be the same!\n";
 }
 
 
@@ -47,15 +43,17 @@ AMateria::~AMateria()
 ** --------------------------------- OVERLOAD ---------------------------------
 */
 
-AMateria &				AMateria::operator=( AMateria const & rhs )
+Sorcerer &				Sorcerer::operator=( Sorcerer const & rhs )
 {
-	_xp = rhs._xp;
+	name = rhs.name;
+	title = rhs.title;
 	return *this;
 }
 
-std::ostream &			operator<<( std::ostream & o, AMateria const & )
+std::ostream &			operator<<( std::ostream & o, Sorcerer const & i )
 {
-	//o << "Value = " << i.getValue();
+	Sorcerer &sor = (Sorcerer &)i;
+	o << "I am " << sor.getName() << ", " << sor.getTitle() << ", and i like ponies!\n";
 	return o;
 }
 
@@ -64,29 +62,24 @@ std::ostream &			operator<<( std::ostream & o, AMateria const & )
 ** --------------------------------- METHODS ----------------------------------
 */
 
-std::string const & AMateria::getType() const
+std::string Sorcerer::getName()
 {
-	return type;
+	return name;
 }
 
-unsigned int AMateria::getXP() const
+std::string Sorcerer::getTitle()
 {
-	return _xp;
+	return title;
 }
 
-void AMateria::setXP(int xp)
+void	Sorcerer::introduce()
 {
-	_xp = xp;
+	std::cout << "I am " << name << ", " << title << ", and i like ponies!\n";	
 }
 
-void AMateria::setType(std::string a_type)
+void	Sorcerer::polymorph(Victim const &vic) const
 {
-	type = a_type;
-}
-
-void AMateria::use(ICharacter&)
-{
-	_xp += 10;
+	vic.getPolymorphed();
 }
 
 

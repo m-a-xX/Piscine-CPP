@@ -1,39 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cure.hpp                                           :+:      :+:    :+:   */
+/*   RadScorpion.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mavileo <mavileo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/12/02 23:06:20 by mavileo           #+#    #+#             */
-/*   Updated: 2020/12/04 10:27:27 by mavileo          ###   ########.fr       */
+/*   Created: 2020/11/28 22:45:45 by mavileo           #+#    #+#             */
+/*   Updated: 2020/11/28 22:45:46 by mavileo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CURE_HPP
-# define CURE_HPP
+#ifndef RADSCORPION_HPP
+# define RADSCORPION_HPP
 
-# include "AMateria.hpp"
-# include "ICharacter.hpp"
+# include "Enemy.hpp"
 # include <iostream>
 # include <string>
 
-class Cure : public AMateria
+class RadScorpion : public Enemy
 {
 
 	public:
 
-		Cure();
-		Cure( Cure const & src );
-		virtual ~Cure();
+		RadScorpion();
+		RadScorpion( RadScorpion const & src );
+		virtual ~RadScorpion();
 
-		Cure &		operator=( Cure const & rhs );
+		RadScorpion &		operator=( RadScorpion const & rhs );
 
-        AMateria* clone() const;
-        void use(ICharacter& target);
+
+	private:
 
 };
 
-std::ostream &			operator<<( std::ostream & o, Cure const & i );
+std::ostream &			operator<<( std::ostream & o, RadScorpion const & i );
 
-#endif /* ************************************************************ CURE_H */
+#endif /* *********************************************************** RadScorpion_H */

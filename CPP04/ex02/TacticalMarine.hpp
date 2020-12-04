@@ -6,7 +6,7 @@
 /*   By: mavileo <mavileo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/29 00:56:12 by mavileo           #+#    #+#             */
-/*   Updated: 2020/12/02 14:15:13 by mavileo          ###   ########.fr       */
+/*   Updated: 2020/12/04 10:19:31 by mavileo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ class TacticalMarine : public ISpaceMarine
 
 		TacticalMarine();
 		TacticalMarine( TacticalMarine const & src );
-		~TacticalMarine();
+		virtual ~TacticalMarine();
 
 		TacticalMarine &		operator=( TacticalMarine const & rhs );
 

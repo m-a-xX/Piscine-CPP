@@ -1,28 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Ice.cpp                                            :+:      :+:    :+:   */
+/*   AWeapon.cpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mavileo <mavileo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/12/02 23:06:12 by mavileo           #+#    #+#             */
-/*   Updated: 2020/12/04 10:39:24 by mavileo          ###   ########.fr       */
+/*   Created: 2020/11/28 18:32:54 by mavileo           #+#    #+#             */
+/*   Updated: 2020/12/04 10:17:59 by mavileo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Ice.hpp"
+#include "AWeapon.hpp"
 
 /*
 ** ------------------------------- CONSTRUCTOR --------------------------------
 */
 
-Ice::Ice() : AMateria("ice")
+AWeapon::AWeapon()
 {
+	name = "(null)";
+	damage = -1;
+	cost = -1;
 }
 
-Ice::Ice( const Ice &s )
+AWeapon::AWeapon(std::string const & a_name, int a_damage, int a_cost)
 {
-	setXP(s.getXP());
+	name = a_name;
+	damage = a_damage;
+	cost = a_cost;
+}
+
+AWeapon::AWeapon( const AWeapon & src )
+{
+	*this = src;
 }
 
 
@@ -30,7 +40,7 @@ Ice::Ice( const Ice &s )
 ** -------------------------------- DESTRUCTOR --------------------------------
 */
 
-Ice::~Ice()
+AWeapon::~AWeapon()
 {
 }
 
@@ -39,15 +49,18 @@ Ice::~Ice()
 ** --------------------------------- OVERLOAD ---------------------------------
 */
 
-Ice &				Ice::operator=( Ice const &s )
+AWeapon &				AWeapon::operator=( AWeapon const & rhs )
 {
-	this->setXP(s.getXP());
+	AWeapon &w = (AWeapon &)rhs;
+	name = w.name;
+	cost = w.cost;
+	damage = w.damage;
 	return *this;
 }
 
-std::ostream &			operator<<( std::ostream & o, Ice const & )
+std::ostream &			operator<<( std::ostream & o, AWeapon const & i )
 {
-	//o << "Value = " << i.getValue();
+	o << i.getName();
 	return o;
 }
 
@@ -56,17 +69,36 @@ std::ostream &			operator<<( std::ostream & o, Ice const & )
 ** --------------------------------- METHODS ----------------------------------
 */
 
-AMateria* Ice::clone() const
+void AWeapon::setName(std::string a_name)
 {
-	AMateria *ret = new Ice(*this);
-	return ret;
+	name = a_name;
 }
 
-void Ice::use(ICharacter& target)
+void AWeapon::setAPCost(int a_cost)
 {
-	this->AMateria::use(target);
-	std::cout << "* shoots an ice bolt at " << target.getName() << " *\n";
+	cost = a_cost;
 }
+
+void AWeapon::setDamage(int a_damage)
+{
+	damage = a_damage;
+}
+
+std::string AWeapon::getName() const
+{
+	return name;
+}
+
+int AWeapon::getAPCost() const
+{
+	return cost;
+}
+
+int AWeapon::getDamage() const
+{
+	return damage;
+}
+
 
 
 /* ************************************************************************** */

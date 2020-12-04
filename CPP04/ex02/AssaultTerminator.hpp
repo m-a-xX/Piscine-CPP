@@ -6,7 +6,7 @@
 /*   By: mavileo <mavileo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/29 00:56:12 by mavileo           #+#    #+#             */
-/*   Updated: 2020/12/02 14:15:57 by mavileo          ###   ########.fr       */
+/*   Updated: 2020/12/04 10:19:15 by mavileo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ class AssaultTerminator : public ISpaceMarine
 
 		AssaultTerminator();
 		AssaultTerminator( AssaultTerminator const & src );
-		~AssaultTerminator();
+		virtual ~AssaultTerminator();
 
 		AssaultTerminator &		operator=( AssaultTerminator const & rhs );
 

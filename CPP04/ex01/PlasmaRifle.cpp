@@ -1,28 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Ice.cpp                                            :+:      :+:    :+:   */
+/*   PlasmaRifle.cpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mavileo <mavileo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/12/02 23:06:12 by mavileo           #+#    #+#             */
-/*   Updated: 2020/12/04 10:39:24 by mavileo          ###   ########.fr       */
+/*   Created: 2020/11/28 18:32:54 by mavileo           #+#    #+#             */
+/*   Updated: 2020/11/28 18:40:52 by mavileo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Ice.hpp"
+#include "PlasmaRifle.hpp"
 
 /*
 ** ------------------------------- CONSTRUCTOR --------------------------------
 */
 
-Ice::Ice() : AMateria("ice")
+PlasmaRifle::PlasmaRifle() : AWeapon("Plasma Rifle", 21, 5)
 {
 }
 
-Ice::Ice( const Ice &s )
+PlasmaRifle::PlasmaRifle( const PlasmaRifle & src )
 {
-	setXP(s.getXP());
+	*this = src;
 }
 
 
@@ -30,7 +30,7 @@ Ice::Ice( const Ice &s )
 ** -------------------------------- DESTRUCTOR --------------------------------
 */
 
-Ice::~Ice()
+PlasmaRifle::~PlasmaRifle()
 {
 }
 
@@ -39,15 +39,17 @@ Ice::~Ice()
 ** --------------------------------- OVERLOAD ---------------------------------
 */
 
-Ice &				Ice::operator=( Ice const &s )
+PlasmaRifle &				PlasmaRifle::operator=( PlasmaRifle const & rhs )
 {
-	this->setXP(s.getXP());
+	setName(rhs.getName());
+	setAPCost(rhs.getAPCost());
+	setDamage(rhs.getDamage());
 	return *this;
 }
 
-std::ostream &			operator<<( std::ostream & o, Ice const & )
+std::ostream &			operator<<( std::ostream & o, PlasmaRifle const & i )
 {
-	//o << "Value = " << i.getValue();
+	o << i.getName();
 	return o;
 }
 
@@ -56,17 +58,9 @@ std::ostream &			operator<<( std::ostream & o, Ice const & )
 ** --------------------------------- METHODS ----------------------------------
 */
 
-AMateria* Ice::clone() const
+void PlasmaRifle::attack() const
 {
-	AMateria *ret = new Ice(*this);
-	return ret;
+    std::cout << "* piouuu piouuu piouuu *\n";
 }
-
-void Ice::use(ICharacter& target)
-{
-	this->AMateria::use(target);
-	std::cout << "* shoots an ice bolt at " << target.getName() << " *\n";
-}
-
 
 /* ************************************************************************** */

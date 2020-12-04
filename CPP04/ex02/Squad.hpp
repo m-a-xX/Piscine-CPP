@@ -6,7 +6,7 @@
 /*   By: mavileo <mavileo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/29 00:56:02 by mavileo           #+#    #+#             */
-/*   Updated: 2020/12/02 14:57:50 by mavileo          ###   ########.fr       */
+/*   Updated: 2020/12/04 10:19:26 by mavileo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ class Squad : public ISquad
 
 		Squad();
 		Squad( Squad const & src );
-		~Squad();
+		virtual ~Squad();
 
 		Squad &		operator=( Squad const & rhs );
 

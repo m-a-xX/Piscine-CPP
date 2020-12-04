@@ -1,39 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cure.hpp                                           :+:      :+:    :+:   */
+/*   Peon.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mavileo <mavileo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/12/02 23:06:20 by mavileo           #+#    #+#             */
-/*   Updated: 2020/12/04 10:27:27 by mavileo          ###   ########.fr       */
+/*   Created: 2020/11/28 16:14:56 by mavileo           #+#    #+#             */
+/*   Updated: 2020/11/28 17:24:43 by mavileo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CURE_HPP
-# define CURE_HPP
+#ifndef PEON_HPP
+# define PEON_HPP
 
-# include "AMateria.hpp"
-# include "ICharacter.hpp"
+# include "Victim.hpp"
 # include <iostream>
 # include <string>
 
-class Cure : public AMateria
+class Peon : public Victim
 {
 
 	public:
 
-		Cure();
-		Cure( Cure const & src );
-		virtual ~Cure();
+		Peon(std::string name);
+		Peon( Peon const & src );
+		virtual ~Peon();
 
-		Cure &		operator=( Cure const & rhs );
+		Peon &		operator=( Peon const & rhs );
 
-        AMateria* clone() const;
-        void use(ICharacter& target);
+		void	getPolymorphed() const;
 
+	private:
+
+		Peon();
 };
 
-std::ostream &			operator<<( std::ostream & o, Cure const & i );
+std::ostream &			operator<<( std::ostream & o, Peon const & i );
 
-#endif /* ************************************************************ CURE_H */
+#endif /* ******************************************************** Peon_H */

@@ -1,36 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   AMateria.cpp                                       :+:      :+:    :+:   */
+/*   Victim.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mavileo <mavileo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/12/02 23:06:09 by mavileo           #+#    #+#             */
-/*   Updated: 2020/12/04 10:41:26 by mavileo          ###   ########.fr       */
+/*   Created: 2020/11/28 16:14:52 by mavileo           #+#    #+#             */
+/*   Updated: 2020/11/28 17:14:52 by mavileo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "AMateria.hpp"
+#include "Victim.hpp"
 
 /*
 ** ------------------------------- CONSTRUCTOR --------------------------------
 */
 
-AMateria::AMateria()
+Victim::Victim()
 {
-	_xp = 0;
-	type = "(null)";
+	name = "Victim";
+	std::cout << "A random victim called " << name << " just appeared!\n";
 }
 
-AMateria::AMateria(std::string const & a_type)
+Victim::Victim(std::string a_name)
 {
-	_xp = 0;
-	type = a_type;
+	name = a_name;
+	std::cout << "A random victim called " << name << " just appeared!\n";
 }
 
-AMateria::AMateria( const AMateria & src )
+Victim::Victim( const Victim & src )
 {
-	_xp = src._xp;
+    *this = src;
 }
 
 
@@ -38,8 +38,9 @@ AMateria::AMateria( const AMateria & src )
 ** -------------------------------- DESTRUCTOR --------------------------------
 */
 
-AMateria::~AMateria()
+Victim::~Victim()
 {
+	std::cout << "The victim " << name << " died for no apparent reasons!\n";
 }
 
 
@@ -47,15 +48,16 @@ AMateria::~AMateria()
 ** --------------------------------- OVERLOAD ---------------------------------
 */
 
-AMateria &				AMateria::operator=( AMateria const & rhs )
+Victim &				Victim::operator=( Victim const & rhs )
 {
-	_xp = rhs._xp;
+	name = rhs.name;
 	return *this;
 }
 
-std::ostream &			operator<<( std::ostream & o, AMateria const & )
+std::ostream &			operator<<( std::ostream & o, Victim const & i )
 {
-	//o << "Value = " << i.getValue();
+	Victim &v = (Victim &)i;
+	o << "I'm " << v.getName() << " and I like otters!\n";	
 	return o;
 }
 
@@ -64,29 +66,24 @@ std::ostream &			operator<<( std::ostream & o, AMateria const & )
 ** --------------------------------- METHODS ----------------------------------
 */
 
-std::string const & AMateria::getType() const
+void Victim::setName(std::string a_name)
 {
-	return type;
+	name = a_name;
 }
 
-unsigned int AMateria::getXP() const
+std::string Victim::getName()
 {
-	return _xp;
+	return name;
 }
 
-void AMateria::setXP(int xp)
+void	Victim::introduce()
 {
-	_xp = xp;
+	std::cout << "I'm " << name << " and I like otters!\n";	
 }
 
-void AMateria::setType(std::string a_type)
+void	Victim::getPolymorphed() const
 {
-	type = a_type;
-}
-
-void AMateria::use(ICharacter&)
-{
-	_xp += 10;
+	std::cout<< name << " was just polymorphed in a cute little sheep!\n";	
 }
 
 

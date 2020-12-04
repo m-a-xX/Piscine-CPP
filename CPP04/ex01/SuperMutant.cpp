@@ -1,28 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Ice.cpp                                            :+:      :+:    :+:   */
+/*   SuperMutant.cpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mavileo <mavileo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/12/02 23:06:12 by mavileo           #+#    #+#             */
-/*   Updated: 2020/12/04 10:39:24 by mavileo          ###   ########.fr       */
+/*   Created: 2020/11/28 22:45:37 by mavileo           #+#    #+#             */
+/*   Updated: 2020/11/28 23:33:18 by mavileo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Ice.hpp"
+#include "SuperMutant.hpp"
 
 /*
 ** ------------------------------- CONSTRUCTOR --------------------------------
 */
 
-Ice::Ice() : AMateria("ice")
+SuperMutant::SuperMutant() : Enemy(170, "Super Mutant")
 {
+	std::cout << "Gaaah. Break everything !\n";
 }
 
-Ice::Ice( const Ice &s )
+SuperMutant::SuperMutant( const SuperMutant & src )
 {
-	setXP(s.getXP());
+	*this = src;
 }
 
 
@@ -30,8 +31,9 @@ Ice::Ice( const Ice &s )
 ** -------------------------------- DESTRUCTOR --------------------------------
 */
 
-Ice::~Ice()
+SuperMutant::~SuperMutant()
 {
+	std::cout << "Aaargh ...\n";
 }
 
 
@@ -39,14 +41,16 @@ Ice::~Ice()
 ** --------------------------------- OVERLOAD ---------------------------------
 */
 
-Ice &				Ice::operator=( Ice const &s )
+SuperMutant &				SuperMutant::operator=( SuperMutant const & rhs )
 {
-	this->setXP(s.getXP());
+	setHP(rhs.getHP());
+	setType(rhs.getType());
 	return *this;
 }
 
-std::ostream &			operator<<( std::ostream & o, Ice const & )
+std::ostream &			operator<<( std::ostream & o, SuperMutant const & i )
 {
+	(void)i;
 	//o << "Value = " << i.getValue();
 	return o;
 }
@@ -56,17 +60,15 @@ std::ostream &			operator<<( std::ostream & o, Ice const & )
 ** --------------------------------- METHODS ----------------------------------
 */
 
-AMateria* Ice::clone() const
+void SuperMutant::takeDamage(int damage)
 {
-	AMateria *ret = new Ice(*this);
-	return ret;
+	damage -= 3;
+	if (getHP() < 0)
+		return ;
+	if (getHP() - damage < 0)
+		setHP(0);
+	else
+		setHP(getHP() - damage);
 }
-
-void Ice::use(ICharacter& target)
-{
-	this->AMateria::use(target);
-	std::cout << "* shoots an ice bolt at " << target.getName() << " *\n";
-}
-
 
 /* ************************************************************************** */

@@ -1,28 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Ice.cpp                                            :+:      :+:    :+:   */
+/*   Enemy.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mavileo <mavileo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/12/02 23:06:12 by mavileo           #+#    #+#             */
-/*   Updated: 2020/12/04 10:39:24 by mavileo          ###   ########.fr       */
+/*   Created: 2020/11/28 22:45:41 by mavileo           #+#    #+#             */
+/*   Updated: 2020/12/04 10:16:17 by mavileo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Ice.hpp"
+#include "Enemy.hpp"
 
 /*
 ** ------------------------------- CONSTRUCTOR --------------------------------
 */
 
-Ice::Ice() : AMateria("ice")
+Enemy::Enemy()
 {
+	hp = -1;
+	type = "(null)";
 }
 
-Ice::Ice( const Ice &s )
+Enemy::Enemy(int a_hp, std::string const & a_type)
 {
-	setXP(s.getXP());
+	hp = a_hp;
+	type = a_type;
+}
+
+Enemy::Enemy( const Enemy & src )
+{
+	*this = src;
 }
 
 
@@ -30,7 +38,7 @@ Ice::Ice( const Ice &s )
 ** -------------------------------- DESTRUCTOR --------------------------------
 */
 
-Ice::~Ice()
+Enemy::~Enemy()
 {
 }
 
@@ -39,14 +47,16 @@ Ice::~Ice()
 ** --------------------------------- OVERLOAD ---------------------------------
 */
 
-Ice &				Ice::operator=( Ice const &s )
+Enemy &				Enemy::operator=( Enemy const & rhs )
 {
-	this->setXP(s.getXP());
+	hp = rhs.getHP();
+	type = rhs.getType();
 	return *this;
 }
 
-std::ostream &			operator<<( std::ostream & o, Ice const & )
+std::ostream &			operator<<( std::ostream & o, Enemy const & i )
 {
+	(void)i;
 	//o << "Value = " << i.getValue();
 	return o;
 }
@@ -56,17 +66,34 @@ std::ostream &			operator<<( std::ostream & o, Ice const & )
 ** --------------------------------- METHODS ----------------------------------
 */
 
-AMateria* Ice::clone() const
+void Enemy::setType(std::string a_type)
 {
-	AMateria *ret = new Ice(*this);
-	return ret;
+	type = a_type;
 }
 
-void Ice::use(ICharacter& target)
+std::string Enemy::getType() const
 {
-	this->AMateria::use(target);
-	std::cout << "* shoots an ice bolt at " << target.getName() << " *\n";
+	return type;
 }
 
+void Enemy::setHP(int newHp)
+{
+	hp = newHp;
+}
+
+int Enemy::getHP() const
+{
+	return hp;
+}
+
+void Enemy::takeDamage(int damage)
+{
+	if (hp < 0)
+		return ;
+	if (hp - damage < 0)
+		hp = 0;
+	else
+		hp -= damage;
+}
 
 /* ************************************************************************** */

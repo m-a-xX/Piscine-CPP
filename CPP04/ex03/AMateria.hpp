@@ -6,7 +6,7 @@
 /*   By: mavileo <mavileo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/02 23:06:05 by mavileo           #+#    #+#             */
-/*   Updated: 2020/12/03 09:57:43 by mavileo          ###   ########.fr       */
+/*   Updated: 2020/12/04 10:41:11 by mavileo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,12 +28,13 @@ class AMateria
         
     public:
 
-        AMateria(std::string const & type);
 		AMateria();
+        AMateria(std::string const & type);
 		AMateria( AMateria const & src );
 		virtual ~AMateria();
         std::string const & getType() const;
         unsigned int getXP() const;
+        void setXP(int);
         void setType(std::string type);
 
         virtual AMateria* clone() const = 0;
