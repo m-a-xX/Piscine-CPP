@@ -82,6 +82,8 @@ void Form::beSigned(Bureaucrat &bur)
 {
 	if (bur.getGrade() > _signGrade)
 		throw GradeTooLowException();
+	if (_isSigned)
+		throw AlreadySignedException();
 	_isSigned = true;
 }
 
@@ -93,6 +95,16 @@ const char *Form::GradeTooHighException::what() const throw()
 const char *Form::GradeTooLowException::what() const throw()
 {
 	return "Too low grade";
+}
+
+const char *Form::AlreadySignedException::what() const throw()
+{
+	return "The form is already signed";
+}
+
+const char *Form::NotSignedException::what() const throw()
+{
+	return "The form is not signed";
 }
 
 
