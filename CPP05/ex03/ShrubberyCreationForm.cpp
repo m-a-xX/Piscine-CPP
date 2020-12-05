@@ -55,8 +55,14 @@ void ShrubberyCreationForm::execute(Bureaucrat const & executor) const
 	"    #        #        #    \n",
 	NULL
 	};
-
-	std::ofstream outfile (getName() + "_shruberry");
+	int	len = (int)(getName().length()) + 11;
+	char filename[len];
+	for (int i=0;i<len-11;i++)
+		filename[i] = getName()[i];
+	for (int i=len-11;i<len;i++)
+		filename[i] = "_shruberry"[i - (len - 11)];
+	filename[len - 1] = 0;
+	std::ofstream outfile (filename);
 	for(int i=0;trees_lines[i];i++)
 		outfile << trees_lines[i];
 	outfile.close();
