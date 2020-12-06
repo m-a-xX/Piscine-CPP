@@ -46,11 +46,12 @@ void * serialize(void)
 Data * deserialize(void * raw)
 {
     std::string strRaw = (char *)raw;
+    std::string strRaw2 = (char *)raw+12;
     unsigned char *charRaw = (unsigned char *)raw;
     Data *ret = new Data;
 
     ret->s1 = strRaw.substr(0, 8);
-    ret->s2 = strRaw.substr(12, 8);
+    ret->s2 = strRaw2.substr(0, 8);
 
     ret->n = (charRaw[8] << 24) | (charRaw[9] << 16) | (charRaw[10] << 8) | charRaw[11];;
 
@@ -62,13 +63,13 @@ int main()
     std::cout << "Welcome in this serialization program !\n\n";
     std::cout << "Serialize some data...\n";
     void *raw = serialize();
-    std::cout << "Serialized bytes heap address :" << raw << "\n";
+    std::cout << "Serialized bytes heap address : " << raw << "\n";
     std::cout << "Deserialize the data...\n";
     Data *deserData = deserialize(raw);
     std::cout << "Deserialized datas :\ns1 : " << deserData->s1 << "\ns2 : " << deserData->s2 << "\nn : " << deserData->n << "\n";
     std::cout << "\nSerialize some new data...\n";
     void *raw2 = serialize();
-    std::cout << "Serialized bytes heap address :" << raw2 << "\n";
+    std::cout << "Serialized bytes heap address : " << raw2 << "\n";
     std::cout << "Deserialize the data...\n";
     Data *deserData2 = deserialize(raw2);
     std::cout << "Deserialized datas :\ns1 : " << deserData2->s1 << "\ns2 : " << deserData2->s2 << "\nn : " << deserData2->n << "\n";
