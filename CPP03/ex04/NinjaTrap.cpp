@@ -6,7 +6,7 @@
 /*   By: mavileo <mavileo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/26 14:32:17 by mavileo           #+#    #+#             */
-/*   Updated: 2020/11/28 01:34:35 by mavileo          ###   ########.fr       */
+/*   Updated: 2020/11/28 16:13:38 by mavileo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,6 +82,12 @@ NinjaTrap &				NinjaTrap::operator=( NinjaTrap const & rhs )
 /*
 ** --------------------------------- METHODS ----------------------------------
 */
+
+void NinjaTrap::ninjaShoebox( ClapTrap &obj )
+{
+	(void)obj;
+	std::cout << "NinjaTrap " << name << " did special attack ninja shoebox on a ClapTrap \n";
+}
 
 void NinjaTrap::ninjaShoebox( FragTrap &obj )
 {

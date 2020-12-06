@@ -6,7 +6,7 @@
 /*   By: mavileo <mavileo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/26 14:32:17 by mavileo           #+#    #+#             */
-/*   Updated: 2020/11/27 15:50:19 by mavileo          ###   ########.fr       */
+/*   Updated: 2020/11/28 13:52:34 by mavileo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ FragTrap::FragTrap(std::string input)
 	maxEnergyPoints = 100;
 	name = input;
 	meleeDamage = 30;
-	rangedDamage = 30;
+	rangedDamage = 20;
 	armor = 5;
 }
 

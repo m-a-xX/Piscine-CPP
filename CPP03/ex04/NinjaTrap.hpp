@@ -6,7 +6,7 @@
 /*   By: mavileo <mavileo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/26 14:32:24 by mavileo           #+#    #+#             */
-/*   Updated: 2020/11/28 01:21:44 by mavileo          ###   ########.fr       */
+/*   Updated: 2020/11/28 16:13:49 by mavileo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ class NinjaTrap : virtual public ClapTrap
 
 		NinjaTrap &		operator=( NinjaTrap const & rhs );
 
+		void ninjaShoebox( ClapTrap &obj );
 		void ninjaShoebox( FragTrap &obj );
 		void ninjaShoebox( ScavTrap &obj );
 		void ninjaShoebox( NinjaTrap &obj );

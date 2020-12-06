@@ -6,7 +6,7 @@
 /*   By: mavileo <mavileo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/26 14:32:17 by mavileo           #+#    #+#             */
-/*   Updated: 2020/11/28 01:32:26 by mavileo          ###   ########.fr       */
+/*   Updated: 2020/11/28 13:52:22 by mavileo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ FragTrap::FragTrap(std::string input)
 	level = 1;
 	name = input;
 	meleeDamage = 30;
-	rangedDamage = 30;
+	rangedDamage = 20;
 	armor = 5;
 }
 
