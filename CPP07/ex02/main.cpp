@@ -28,7 +28,7 @@ int main()
     std::cout << "\nPrint a non existent element of the int array :\n";
     try
     {
-        std::cout << intArray[5];
+        std::cout << intArray[55];
     }
     catch(const std::exception& e)
     {
