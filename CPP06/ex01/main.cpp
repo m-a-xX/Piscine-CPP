@@ -26,17 +26,15 @@ void * serialize(void)
 {
     char *s1 = random_string(8);
     char *s2 = random_string(8);
-    int n = rand();
+    int *n = new int;
+    *n = rand();
     unsigned char *ret = new unsigned char[20];
-    std::cout << "Serialized datas :\ns1 : " << s1 << "\ns2 : " << s2 << "\nn : " << n << "\n";
+    std::cout << "Serialized datas :\ns1 : " << s1 << "\ns2 : " << s2 << "\nn : " << *n << "\n";
 
     for (int i=0; i<8; i++)
         ret[i] = s1[i];
 
-    ret[8] = (n >> 24);
-    ret[9] = (n >> 16);
-    ret[10] = (n >> 8);
-    ret[11] = n;
+    memcpy(ret + 8, reinterpret_cast<char*>(n), 4);
 
     for (int i=0; i<8; i++)
         ret[i+12] = s2[i];
@@ -53,7 +51,7 @@ Data * deserialize(void * raw)
     ret->s1 = strRaw.substr(0, 8);
     ret->s2 = strRaw2.substr(0, 8);
 
-    ret->n = (charRaw[8] << 24) | (charRaw[9] << 16) | (charRaw[10] << 8) | charRaw[11];;
+    ret->n = *reinterpret_cast<int*>(charRaw + 8);
 
     return ret;
 }

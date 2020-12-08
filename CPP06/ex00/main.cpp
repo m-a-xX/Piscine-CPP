@@ -13,19 +13,22 @@ double isPseudoLitteral(std::string arg)
 
 char getChar(std::string arg)
 {
-    if (arg.length() == 1 && arg[0] > 32 && arg[0] < 127)
+    if (arg.length() == 1 && arg[0] >= 32 && arg[0] < 127)
         return arg[0];
     if (arg.length() == 1)
         return 1;
     return 0;
 }
 
-void printChar(char c, double )
+void printChar(char c, double d )
 {
-    if (c == 0)
-        std::cout << "char: impossible\n";
-    else if (c == -1)
+    double tmp;
+    if (c == 0 && !modf(d, &tmp) && d >= 32 && d < 127)
+        std::cout << "char: " << (char)d << "\n";
+    else if ((c == 0 && !modf(d, &tmp) && d < 33) || c == -1)
         std::cout << "char: Non displayable\n";
+    else if (c == 0)
+        std::cout << "char: impossible\n";
     else
         std::cout << "char: " << c << "\n";
 }
